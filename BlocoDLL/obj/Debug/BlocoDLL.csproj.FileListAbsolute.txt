@@ -5,3 +5,5 @@ C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\Bloco
 C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\obj\Debug\BlocoDLL.dll
 C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\obj\Debug\BlocoDLL.pdb
 C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\obj\Debug\BlocoDLL.csprojAssemblyReference.cache
+C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\bin\Debug\Ionic.Zip.dll
+C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\obj\Debug\BlocoDLL.csproj.CopyComplete

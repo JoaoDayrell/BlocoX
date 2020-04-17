@@ -67,7 +67,7 @@ namespace BlocoDLL
 
             //Close the File Stream
             fs.Close();
-            //fi.Delete();
+            fi.Delete();
             return ImageData; //return the byte data
         }
     }
