@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlocoDLL.ApiSoap;
+using BlocoDLL.Relatorio;
 using System.IO;
 
-namespace BlocoDLL.ApiSoap
+namespace BlocoDLL
 {
     public class Api
         
@@ -51,8 +48,14 @@ namespace BlocoDLL.ApiSoap
             Consumo soap = new Consumo(ambiente, xml);
             return soap.consultarArquivo();
         }
-        private byte[] EncodeTo64(string filename)
+        protected byte[] EncodeTo64(string filename)
         {
+            if (filename.Substring(filename.Length - 3) == "xml")
+            {
+                Zip zip = new Zip();
+                filename = zip.zipFIle(filename);
+            }
+
             FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
             FileInfo fi = new FileInfo(filename);
 

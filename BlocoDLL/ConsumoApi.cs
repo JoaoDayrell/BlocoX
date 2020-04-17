@@ -1,5 +1,5 @@
 ﻿using System.IO;
-namespace BlocoDLL
+namespace BlocoDLL.ApiSoap
 {
     class Consumo
     {
@@ -26,10 +26,13 @@ namespace BlocoDLL
                 BlocoX.BlocoX Soap = new BlocoX.BlocoX();
                 return Soap.TransmitirArquivo(xml64);
             }
-            else
+            else if (ambiente == 1)
             {
                 BlocoX.BlocoX Soap = new BlocoX.BlocoX();
                 return Soap.TransmitirArquivo(xml64);
+            }
+            else {
+                return ("Valor incorreto para ambiente");
             }
         }
         public string consultarArquivo()
