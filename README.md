@@ -1,5 +1,5 @@
  DLL para consumo Bloco X Santa Catarina
- <h1> TODAS OS METODOS ESTÃO NA CLASSE API</h1>
+ <h1> TODOS OS METODOS ESTÃO NA CLASSE API</h1>
  
 transmitirArquivo -> Este metodo pede 2 parâmetros, o ambiente (1 para produção 2 para homologação) e o caminho do arquivo já assinado digitalmente sendo ele .zip ex: transmitirArquivo(1, "C:\Users\BlocoX\Desktop")
 
