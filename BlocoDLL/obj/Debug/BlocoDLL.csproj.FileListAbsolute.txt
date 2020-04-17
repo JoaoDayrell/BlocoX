@@ -4,3 +4,4 @@ C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\Bloco
 C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\obj\Debug\BlocoDLL.csproj.CoreCompileInputs.cache
 C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\obj\Debug\BlocoDLL.dll
 C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\obj\Debug\BlocoDLL.pdb
+C:\Users\Dayrell\Desktop\Home Office\Módulo Envio XML SC\BlocoXDLL\BlocoX\BlocoDLL\obj\Debug\BlocoDLL.csprojAssemblyReference.cache

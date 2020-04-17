@@ -1,132 +1,71 @@
-﻿
-namespace BlocoDLL
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace BlocoDLL.ApiSoap
 {
-    class Consumo
+    public class Api
+        
     {
-        byte[] xml64;
-        int ambiente;
-        string xml;
-        //1 produçao;
-        //2 homologação;
-        public Consumo(byte[] xml64, int ambiente)
+        public string transmitirArquivo(int ambiente, string caminho)
         {
-            this.xml64 = xml64;
-            this.ambiente = ambiente;
+            Consumo soap = new Consumo(EncodeTo64(caminho), ambiente);
+            return soap.transmitirArquivo();
+            
         }
-        public Consumo(int ambiente,string xml)
+        public string consultarArquivo(int ambiente, string xml)
         {
-            this.xml = xml;
-            this.ambiente = ambiente;
+            Consumo soap = new Consumo(ambiente, xml);
+            return soap.consultarArquivo();
         }
+        public string cancelarArquivo(int ambiente, string xml)
+        {
+            Consumo soap = new Consumo(ambiente, xml);
+            return soap.cancelarArquivo();
+        }
+        public string consultarHistoricoArquivo(int ambiente, string xml)
+        {
+            Consumo soap = new Consumo(ambiente, xml);
+            return soap.consultarHistoricoArquivo();
+        }
+        public string consultarPendenciasContribuinte(int ambiente, string xml)
+        {
+            Consumo soap = new Consumo(ambiente, xml);
+            return soap.consultarPendenciasContribuinte();
+        }
+        public string downloadArquivo(int ambiente, string xml)
+        {
+            Consumo soap = new Consumo(ambiente, xml);
+            return soap.downloadArquivo(xml);
+        }
+        public string listarArquivos(int ambiente, string xml)
+        {
+            Consumo soap = new Consumo(ambiente, xml);
+            return soap.listarArquivos();
+        }
+        public string reprocessarArquivo(int ambiente, string xml)
+        {
+            Consumo soap = new Consumo(ambiente, xml);
+            return soap.consultarArquivo();
+        }
+        private byte[] EncodeTo64(string filename)
+        {
+            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+            FileInfo fi = new FileInfo(filename);
 
-        public string transmitirArquivo()
-        {
-            if (ambiente == 2)
-            {
-                BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.TransmitirArquivo(xml64);
-            }
-            else
-            {
-                BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.TransmitirArquivo(xml64);
-            }
-        }
-        public string consultarArquivo()
-        {
+            // Create a byte array of file stream length
+            byte[] ImageData = new byte[fs.Length];
 
-            if (ambiente == 2)
-            {
-                BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ConsultarProcessamentoArquivo(xml);
-            }
-            else
-            {
-                BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ConsultarProcessamentoArquivo(xml);
-            }            
-        }
-        public string cancelarArquivo()
-        {
-            if (ambiente == 2)
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.CancelarArquivo(xml);
-            }
-            else
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.CancelarArquivo(xml);
-            }
-        }
+            //Read block of bytes from stream into the byte array
+            fs.Read(ImageData, 0, System.Convert.ToInt32(fs.Length));
 
-        public string consultarHistoricoArquivo()
-        {
-            if (ambiente == 2)
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ConsultarHistoricoArquivo(xml);
-            }
-            else
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ConsultarHistoricoArquivo(xml);
-            }
+            //Close the File Stream
+            fs.Close();
+            //fi.Delete();
+            return ImageData; //return the byte data
         }
-
-        public string consultarPendenciasContribuinte()
-        {
-            if (ambiente == 2)
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ConsultarPendenciasContribuinte(xml);
-            }
-            else
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ConsultarPendenciasContribuinte(xml);
-            }
-        }
-        public string downloadArquivo(string xml)
-        {
-            if (ambiente == 2)
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.DownloadArquivo(xml);
-            }
-            else
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.DownloadArquivo(xml);
-            }
-        }
-        public string listarArquivos()
-        {
-            if (ambiente == 2)
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ListarArquivos(xml);
-            }
-            else
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ListarArquivos(xml);
-            }
-        }
-        public string reprocessarArquivo()
-        {
-            if (ambiente == 2)
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ReprocessarArquivo(xml);
-            }
-            else
-            {
-               BlocoX.BlocoX Soap = new BlocoX.BlocoX();
-                return Soap.ReprocessarArquivo(xml);
-            }
-        }
-
-
     }
 }
